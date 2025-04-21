@@ -48,7 +48,7 @@
             destination: destination, 
             details: details
         };
-        analytics.identify('1234', {
+        analytics.identify('null', {
             email: email, 
             name: fullname
         });
@@ -56,6 +56,15 @@
             window.location.href = "";
         });
       }
+</script>
+
+    <script src="https://cdn.amplitude.com/script/AMPLITUDE_API_KEY.js"></script>
+
+<script>
+  window.amplitude.init('09038212fbe3d726434625e5d629aeb8', {
+    fetchRemoteConfig: true,
+    autocapture: true
+  });
 </script>
 
 </body> 
