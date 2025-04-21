@@ -1,0 +1,1 @@
+{"version":3,"file":"global.js","sourceRoot":"","sources":["../../../src/types/global.ts"],"names":[],"mappings":"AAAA,0CAA0C;AAC1C,kCAAkC;AAClC,MAAM,CAAC,IAAI,qBAAwC,CAAC","sourcesContent":["/* eslint-disable no-restricted-globals */\n// eslint-disable-next-line no-var\nexport var ampIntegrationContext: typeof globalThis;\n"]}

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@amplitude/analytics-browser": "^2.15.0"
+  }
+}
