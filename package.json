@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@amplitude/analytics-browser": "^2.15.0"
+    "@amplitude/analytics-browser": "^2.15.0",
+    "@segment/analytics-next": "^1.80.0"
   }
 }
