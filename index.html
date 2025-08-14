@@ -44,20 +44,46 @@
         var fullname = form["fullname"].value;
         var destination = form["destination"].value;
         var details = form["details"].value;
+
+         // Get current time with timezone offset in ISO 8601 format
+    var now = new Date();
+    var tzOffsetMin = now.getTimezoneOffset(); // in minutes
+    var sign = tzOffsetMin > 0 ? "-" : "+";
+    var pad = num => String(Math.floor(Math.abs(num))).padStart(2, '0');
+    var hoursOffset = pad(tzOffsetMin / -60);
+    var minutesOffset = pad(tzOffsetMin % 60);
+    var formattedTime = now.getFullYear() + "-" +
+                        pad(now.getMonth() + 1) + "-" +
+                        pad(now.getDate()) + "T" +
+                        pad(now.getHours()) + ":" +
+                        pad(now.getMinutes()) + ":" +
+                        pad(now.getSeconds()) +
+                        sign + hoursOffset + ":" + minutesOffset;
+
+          
         var user = {
             email: email, 
             name: fullname, 
             destination: destination, 
             details: details
         };
-        analytics.identify('1234', {
-            email: email, 
-            name: fullname
-        });
-        analytics.track('destination submitted', user, function() {
-            window.location.href = "";
-        });
+       analytics.identify('1234', {
+      email: email,
+      name: fullname
+    }, {
+      context: {
+        submissionTime: formattedTime
       }
+    });
+
+        analytics.track('destination submitted', user, {
+      context: {
+        submissionTime: formattedTime
+      }
+    }, function() {
+      window.location.href = "";
+    });
+  }
 </script>
 
 
